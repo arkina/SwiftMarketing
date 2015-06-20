@@ -5,12 +5,13 @@
  *
  * @author Faizan Ayubi
  */
-use Framework\Controller as Controller;
+use Shared\Controller as Controller;
 
 class Home extends Controller {
 
     public function index() {
-        
+        $this->seo(array("title" => "SwiftMarketing", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
     }
 
 }

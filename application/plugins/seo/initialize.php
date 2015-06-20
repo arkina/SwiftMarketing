@@ -4,12 +4,12 @@
 include("seo.php");
 
 $seo = new SEO(array(
-    "title" => "Internship Training | Internship India 2015",
-    "keywords" => "Internship india, Internship in Mumbai, The Internship, Internship training, Internship in bangalore, Summer internship india" ,
-    "description" => "Apply to thousands of Internships in Mumbai, bangalore, delhi, chennai, hyderabad for B.Tech, MBA, etc Students",
-    "author" => "https://plus.google.com/107837531266258418226",
+    "title" => "SwiftMarketing",
+    "keywords" => "SwiftMarketing" ,
+    "description" => "SwiftMarketing",
+    "author" => "https://plus.google.com/u/0/+FaizanAyubi",
     "robots" => "INDEX,FOLLOW",
-    "photo" => CDN . "images/logo.png"
+    "photo" => "https://avatars0.githubusercontent.com/u/4982023?v=3&s=460"
 ));
 
 Framework\Registry::set("seo", $seo);
