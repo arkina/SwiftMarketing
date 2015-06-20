@@ -4,6 +4,8 @@
  *
  * @author Faizan Ayubi
  */
+use Framework\RequestMethods as RequestMethods;
+
 class App extends Home{
     /**
      * @before _secure, changeLayout
@@ -19,6 +21,32 @@ class App extends Home{
     public function campaignCreate() {
         $this->seo(array("title" => "Create Campaign", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
+        
+        if (RequestMethods::post("action") == "createCampaign") {
+            $campaign = new Campaign(array(
+                "title" => RequestMethods::post("title"),
+                "user_id" => $this->user->id
+            ));
+            $campaign->save();
+            
+            $body = RequestMethods::post("message");
+            $subject = RequestMethods::post("subject");
+            foreach ($body as $key => $value) {
+                $msg = new Message(array(
+                    "subject" => $subject[$key],
+                    "body" => $value
+                ));
+                $msg->save();
+                
+                $template = new Template(array(
+                    "campaign_id" => $campaign->id,
+                    "message_id" => $msg->id,
+                    "pipeline" => $key
+                ));
+                $template->save();
+            }
+            $view->set("success", TRUE);
+        }
     }
     
     /**

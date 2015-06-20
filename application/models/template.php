@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The User Model
+ * The Template Model
  *
  * @author Faizan Ayubi
  */

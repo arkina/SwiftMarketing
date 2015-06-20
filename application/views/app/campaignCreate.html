@@ -1,36 +1,45 @@
 <div id="page-wrapper">
     <div class="row col-lg-12">
         <h1 class="page-header text-center">Create Campaign</h1>
-        <form class="row" method="post" action="/admin/crmTemplate">
+        {if isset($success)}
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            Campaign Pipeline Saved <strong>Successfully!</strong>. <a href="/app/campaignManage">click here</a> to launch this campaign
+        </div>
+        {/if}
+        <form class="row" method="post" action="">
             <div class="form-group">
-                <label>Title</label>
-                <input type="text" name="title" class="form-control" required="" placeholder="Unique CRM Title">
+                <label>Campaign Name</label>
+                <input type="text" name="title" class="form-control" required="" placeholder="Unique Campaign name">
             </div><hr>
-            <div class="panel panel-default panel-body">
-                <label class="text-center">First Message</label>
-                <div class="form-group">
-                    <label>Subject</label>
-                    <input type="text" name="subject[]" class="form-control" maxlength="64" required="">
+
+            <div id="message">
+                <div class="panel panel-default panel-body">
+                    <label class="text-center">First Message for Goal Completion</label>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject[]" class="form-control" maxlength="64" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Message Body</label>
+                        <textarea name="message[]" class="form-control editor"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Message Body</label>
-                    <textarea name="message[]" class="form-control editor"></textarea>
-                </div>
-            </div>
-            
-            <div class="panel panel-default panel-body">
-                <label class="text-center">Second Message</label>
-                <div class="form-group">
-                    <label>Subject</label>
-                    <input type="text" name="subject[]" class="form-control" maxlength="64" required="">
-                </div>
-                <div class="form-group">
-                    <label>Message Body</label>
-                    <textarea name="message[]" class="form-control editor"></textarea>
+                
+                <div class="panel panel-default panel-body">
+                    <label class="text-center">Second Message for Goal Completion</label>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject[]" class="form-control" maxlength="64" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Message Body</label>
+                        <textarea name="message[]" class="form-control editor"></textarea>
+                    </div>
                 </div>
             </div>
 
-            <input type="hidden" name="action" value="createCrmTemplate">
+            <input type="hidden" name="action" value="createCampaign">
             <button type="submit" class="btn btn-primary pull-right" id="crm_btn"><i class="fa fa-check-circle"></i> Save</button>
         </form>
     </div>
