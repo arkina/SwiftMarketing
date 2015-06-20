@@ -18,7 +18,7 @@ class Home extends Controller {
     public function login() {
         $this->seo(array("title" => "Login", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
-        
+        var_dump($this->user);
         if(RequestMethods::post("action") == "login"){
             $email = RequestMethods::post("email");
             $password = RequestMethods::post("password");
