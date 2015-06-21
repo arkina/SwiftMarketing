@@ -7,6 +7,8 @@ define("DEBUG", TRUE);
 
 define("APP_PATH", str_replace(DIRECTORY_SEPARATOR, "/", dirname(__FILE__)));
 
+echo APP_PATH;
+
 try {
     
     // library's class autoloader
