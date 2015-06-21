@@ -27,6 +27,20 @@ class CRON extends Users {
         $date = strftime("%Y-%m-%d", strtotime('-4 days'));
         $now = strftime("%Y-%m-%d", strtotime('now'));
         
+        $leads = Lead::all(array("validity = ?" => true));
+        foreach ($leads as $lead) {
+            $campaign = Campaign::first(array("id = ?" => $lead->campaign_id));
+            $template = Template::first(array(""));
+            switch ($lead->status) {
+                case $value:
+                    
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        
         //using distinct so as to reduce db query for message and crm
         $leads = Lead::all(array("created = ?" => $date), array("DISTINCT crm_id"));
         foreach ($leads as $lead) {
