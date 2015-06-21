@@ -25,14 +25,14 @@ class Home extends Controller {
             $user = User::first(array("email = ?" => $email, "password = ?" => $password));
             if ($user) {
                 $this->user = $user;
-                self::redirect("/app");
+                self::redirect("/main");
             } else {
                 $view->set("success", "Wrong username or password");
             }
         }
         
         if($this->user){
-            self::redirect("/app");
+            self::redirect("/main");
         }
     }
     

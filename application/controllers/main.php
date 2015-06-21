@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Description of app
+ * Description of User
  *
  * @author Faizan Ayubi
  */
 use Framework\RequestMethods as RequestMethods;
 
-class App extends Home {
+class Main extends Home {
 
     /**
      * @before _secure, changeLayout
@@ -165,7 +165,7 @@ class App extends Home {
      * Changes the Standard Layout
      */
     public function changeLayout() {
-        $this->defaultLayout = "layouts/app";
+        $this->defaultLayout = "layouts/main";
         $this->setLayout();
     }
 
