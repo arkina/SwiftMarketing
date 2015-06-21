@@ -33,6 +33,7 @@ class App extends Home {
 
             $body = RequestMethods::post("message");
             $subject = RequestMethods::post("subject");
+            $day = RequestMethods::post("day");
             foreach ($body as $key => $value) {
                 $msg = new Message(array(
                     "subject" => $subject[$key],
@@ -43,7 +44,8 @@ class App extends Home {
                 $template = new Template(array(
                     "campaign_id" => $campaign->id,
                     "message_id" => $msg->id,
-                    "pipeline" => $key
+                    "pipeline" => $key,
+                    "day" => $day[$key]
                 ));
                 $template->save();
             }
@@ -54,7 +56,7 @@ class App extends Home {
     /**
      * @before _secure, changeLayout
      */
-    public function campaignStart($param) {
+    public function campaignStart() {
         $this->seo(array("title" => "Start Campaign", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
